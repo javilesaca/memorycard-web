@@ -139,6 +139,17 @@ h2 {
   color: #111;
 }
 
+.hermano {
+  text-align: center;
+  margin: 1.5rem auto;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.hermano a {
+  color: #0ff;
+}
+
 .card {
   width: 100%;
   aspect-ratio: 4/5;
