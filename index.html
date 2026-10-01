@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🧠 MemoryCard Arcade</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="icon" href="assets/favicon.ico"/>
+  <script type="module" src="js/main.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>🧠 MEMORYCARD ARCADE</h1>
+
+    <section class="ranking">
+      <h2>🏆 Top 10 Jugadores</h2>
+      <div class="dificultad">
+        <button data-nivel="facil">Fácil</button>
+        <button data-nivel="normal">Normal</button>
+        <button data-nivel="dificil">Difícil</button>
+      </div>
+      <ol id="ranking">
+        <li>Cargando ranking...</li>
+      </ol>
+    </section>
+
+    <button class="play-button" id="jugar"> JUGAR </button>
+
+    <section class="how-to-play">
+      <h2>📖 Cómo jugar</h2>
+      <p>Descubre todas las parejas en el menor tiempo posible.</p>
+      <ul>
+        <li>Haz clic en dos cartas para encontrar una pareja.</li>
+        <li>Si coinciden, se quedarán visibles.</li>
+        <li>Si no, se voltearán nuevamente.</li>
+        <li>¡Termina rápido y entra al ranking con tus iniciales!</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>

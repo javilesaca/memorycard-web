@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jugar - MemoryCard Arcade</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>🧠 ¡A jugar!</h1>
+    
+    <div class="timer">
+      ⏱️ Tiempo: <span id="time">0.00</span>s
+    </div>
+
+    <div class="dificultad">
+      <button data-dificultad="facil">Fácil (10-12)</button>
+      <button data-dificultad="normal">Normal (16-20)</button>
+      <button data-dificultad="dificil">Difícil (24-30)</button>
+    </div>
+
+    <div class="board" id="board">
+      <!-- Las cartas se generarán desde JS -->
+    </div>
+
+    <div class="score-form" id="score-form" style="display: none;">
+      <h2>🎉 ¡Has ganado!</h2>
+      <p>Introduce tus iniciales (3 letras):</p>
+      <form id="save-score-form">
+        <input type="text" id="initials" maxlength="3" pattern="[A-Z]{3}" required placeholder="ABC" />
+        <button type="submit">Guardar</button>
+      </form>
+    </div>
+  </div>
+  <script type="module" src="js/game.js"></script>
+</body>
+</html>
