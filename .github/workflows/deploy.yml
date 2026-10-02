@@ -27,7 +27,6 @@ jobs:
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         # FTP lands jailed at the docroot: ./memoryCard/ == public_html/memoryCard/
         run: |
-          lftp -e "set ssl:verify-certificate no; set net:timeout 20; set net:max-retries 2; set net:reconnect-interval-base 5; debug; \
-            ls ./memoryCard/; \
-            mirror -R --verbose ./ ./memoryCard/ -x .git/ -x .github/ -x .vscode/; quit" \
+          lftp -e "set ssl:verify-certificate no; set net:timeout 20; set net:max-retries 2; set net:reconnect-interval-base 5; \
+            mirror -R ./ ./memoryCard/ -x .git/ -x .github/ -x .vscode/; quit" \
             -u "$FTP_USERNAME,$FTP_PASSWORD" "$FTP_SERVER"
