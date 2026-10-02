@@ -1,0 +1,32 @@
+name: Deploy MemoryCard Web to Namecheap
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Run board tests
+        run: node --test test/board.test.js
+
+      - name: Install lftp
+        run: sudo apt-get install -y lftp
+
+      - name: Deploy to Namecheap via FTP
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        # FTP lands jailed at the docroot: ./memoryCard/ == public_html/memoryCard/
+        run: |
+          lftp -e "set ssl:verify-certificate no; \
+            mirror -R ./ ./memoryCard/ -x .git/ -x .github/ -x .vscode/; quit" \
+            -u "$FTP_USERNAME,$FTP_PASSWORD" "$FTP_SERVER"
